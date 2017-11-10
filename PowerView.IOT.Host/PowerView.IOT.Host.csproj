@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PowerView.DataAccess\PowerView.DataAccess.csproj">
+      <Project>{435ef6ff-a333-4977-a8ec-b8f3ed4204c4}</Project>
+      <Name>PowerView.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PowerView.IoT\PowerView.IoT.Ingestion.csproj">
       <Project>{756f916e-af39-48ae-a223-c712f6f029a9}</Project>
       <Name>PowerView.IoT.Ingestion</Name>

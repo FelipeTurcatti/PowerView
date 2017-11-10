@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PowerView.DataAccess;
+using PowerView.DataAccess.MongoDB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using uPLibrary.Networking.M2Mqtt; 
+using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace PowerView.IoT.Ingestion
 {
-    public class MetricIngestor: IMetricIngestor
+    public class MetricIngestor : IMetricIngestor
     {
 
         #region Members
 
-        private readonly MqttClient _client; 
+        private readonly MqttClient _client;
 
         private readonly String _clientId;
 
@@ -33,7 +36,7 @@ namespace PowerView.IoT.Ingestion
             this._clientId = Guid.NewGuid().ToString();
 
             this._client = new MqttClient(BrokerAddress);
-            
+
         }
 
         #endregion
@@ -41,7 +44,7 @@ namespace PowerView.IoT.Ingestion
         #region Methods
 
         public void Connect()
-        {            
+        {
             // register a callback-function (we have to implement, see below) which is called by the library when a message was received 
             this._client.MqttMsgPublishReceived += OnMessagePublishReceived;
 
@@ -64,9 +67,12 @@ namespace PowerView.IoT.Ingestion
 
         private void OnMessagePublishReceived(Object sender, MqttMsgPublishEventArgs e)
         {
-            
-        }
+            string receivedMessage = Encoding.UTF8.GetString(e.Message);
 
+            Measurement measured = JsonConvert.DeserializeObject<Measurement>(receivedMessage);
+            measured.CreationDate = DateTime.Now;
+            MongoDBUtil.InsertOne<Measurement>(measured);
+        }
         #endregion
     }
 }
