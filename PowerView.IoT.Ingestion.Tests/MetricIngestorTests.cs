@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PowerView.DataAccess.Abstractions;
+using PowerView.Infrastructure;
 using PowerView.IoT.Ingestion;
 using PowerView.IoT.Ingestion.Mqtt;
 using Rhino.Mocks;
@@ -21,6 +22,8 @@ namespace PowerView.IoT.Ingestion.Tests
 
         private IMeasurementRepository _measurementRepository;
 
+        private IConfiguration _configuration;
+
         private IMqttClient _mqttClient;
 
         #endregion
@@ -34,7 +37,9 @@ namespace PowerView.IoT.Ingestion.Tests
 
             this._mqttClient = MockRepository.GenerateMock<IMqttClient>();
 
-            this._target = new MetricIngestor(this._mqttClient, this._measurementRepository);
+            this._configuration = MockRepository.GenerateMock<IConfiguration>();
+
+            this._target = new MetricIngestor(this._mqttClient, this._measurementRepository, this._configuration);
         }
 
         #endregion

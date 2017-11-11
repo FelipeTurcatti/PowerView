@@ -88,6 +88,10 @@
       <Project>{eacd8269-abea-4eef-9821-83544fc419a9}</Project>
       <Name>PowerView.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PowerView.Infrastructure\PowerView.Infrastructure.csproj">
+      <Project>{D7A47550-4779-4C9C-BC12-A95A7C2EE0BE}</Project>
+      <Name>PowerView.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,5 +1,6 @@
 ﻿using PowerView.DataAccess;
 using PowerView.DataAccess.Abstractions;
+using PowerView.Infrastructure;
 using PowerView.IoT.Ingestion;
 using PowerView.IoT.Ingestion.Mqtt;
 using System;
@@ -15,7 +16,9 @@ namespace PowerView.IOT.Host
     public static class UnityConfig
     {
         public static void RegisterComponents(IUnityContainer container)
-        {            
+        {
+            container.RegisterType<IConfiguration, PowerView.Infrastructure.Configuration>();
+
             container.RegisterType<IMetricIngestor, MetricIngestor>();
 
             container.RegisterType<IMeasurementRepository, MeasurementRepository>();

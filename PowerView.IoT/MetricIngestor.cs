@@ -2,6 +2,7 @@
 using PowerView.DataAccess;
 using PowerView.DataAccess.Abstractions;
 using PowerView.Domain;
+using PowerView.Infrastructure;
 using PowerView.IoT.Ingestion.Mqtt;
 using System;
 using System.Collections.Generic;
@@ -20,30 +21,27 @@ namespace PowerView.IoT.Ingestion
 
         private readonly IMqttClient _client;
 
-        private readonly String _clientId;
-
-        private const String BrokerAddress = "127.0.0.1";
-
-        private readonly String _topic;
-
         private readonly IMeasurementRepository _measurementRepository;
+
+        private readonly IConfiguration _configuration;
+
+        private readonly String _clientId;
 
         #endregion
 
         #region Constructor
 
-        public MetricIngestor(IMqttClient mqttClient, IMeasurementRepository measurementRepository)
+        public MetricIngestor(IMqttClient mqttClient, IMeasurementRepository measurementRepository, IConfiguration configuration)
         {
 
             this._measurementRepository = measurementRepository;
 
-            this._client = mqttClient;
+            this._configuration = configuration;
 
-            this._topic = "/test";
+            this._client = mqttClient;            
 
             // use a unique id as client id, each time we start the application 
-            this._clientId = Guid.NewGuid().ToString();            
-
+            this._clientId = Guid.NewGuid().ToString();
         }
 
         #endregion
@@ -57,7 +55,7 @@ namespace PowerView.IoT.Ingestion
 
             this._client.Connect(_clientId);
 
-            this._client.Subscribe(new String[] { this._topic }, new byte[] { 2 });
+            this._client.Subscribe(new String[] { this._configuration.MeasurementTopic}, new byte[] { 2 });
         }
 
         public void Disconnect()
