@@ -39,6 +39,10 @@
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -54,10 +58,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MetricIngestorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerView.DataAccess\PowerView.DataAccess.csproj">
+      <Project>{435ef6ff-a333-4977-a8ec-b8f3ed4204c4}</Project>
+      <Name>PowerView.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PowerView.IoT\PowerView.IoT.Ingestion.csproj">
+      <Project>{756F916E-AF39-48AE-A223-C712F6F029A9}</Project>
+      <Name>PowerView.IoT.Ingestion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

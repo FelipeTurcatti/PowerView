@@ -1,8 +1,10 @@
 ﻿using PowerView.DataAccess;
 using PowerView.DataAccess.Abstractions;
 using PowerView.IoT.Ingestion;
+using PowerView.IoT.Ingestion.Mqtt;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,8 @@ namespace PowerView.IOT.Host
             container.RegisterType<IMetricIngestor, MetricIngestor>();
 
             container.RegisterType<IMeasurementRepository, MeasurementRepository>();
+
+            container.RegisterType<IMqttClient, MqttClient>(new Unity.Injection.InjectionConstructor(ConfigurationManager.AppSettings["MQTTBrokerAdsress"]));
         }
     }
 
