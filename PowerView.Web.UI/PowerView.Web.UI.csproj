@@ -365,6 +365,10 @@
       <Project>{0d89a850-f687-4724-b9b7-5b72d7cfb30e}</Project>
       <Name>PowerView.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PowerView.Domain.Logic\PowerView.Domain.Logic.csproj">
+      <Project>{e204dd87-78ff-457e-bca7-8221e07452db}</Project>
+      <Name>PowerView.Domain.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PowerView.Domain\PowerView.Domain.csproj">
       <Project>{eacd8269-abea-4eef-9821-83544fc419a9}</Project>
       <Name>PowerView.Domain</Name>

@@ -1,4 +1,4 @@
-﻿namespace PowerView.IOT.Host
+﻿namespace PowerView.IoT.Host
 {
     partial class ProjectInstaller
     {

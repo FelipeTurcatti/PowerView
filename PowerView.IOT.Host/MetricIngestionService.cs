@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity;
 
-namespace PowerView.IOT.Host
+namespace PowerView.IoT.Host
 {
     public partial class MetricIngestionService : ServiceBase
     {

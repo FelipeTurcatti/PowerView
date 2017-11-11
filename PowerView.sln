@@ -31,9 +31,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{62B8D1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceAccess", "ResourceAccess", "{550A286D-683D-4838-9485-129A7C808E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.IOT.Host", "PowerView.IOT.Host\PowerView.IOT.Host.csproj", "{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.IoT.Host", "PowerView.IOT.Host\PowerView.IoT.Host.csproj", "{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.IoT.Ingestion.Tests", "PowerView.IoT.Ingestion.Tests\PowerView.IoT.Ingestion.Tests.csproj", "{FEDF9486-499C-4440-BB85-1CAC997A7441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Domain.Logic", "PowerView.Domain.Logic\PowerView.Domain.Logic.csproj", "{E204DD87-78FF-457E-BCA7-8221E07452DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E204DD87-78FF-457E-BCA7-8221E07452DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E204DD87-78FF-457E-BCA7-8221E07452DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E204DD87-78FF-457E-BCA7-8221E07452DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E204DD87-78FF-457E-BCA7-8221E07452DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,5 +102,6 @@ Global
 		{D7A47550-4779-4C9C-BC12-A95A7C2EE0BE} = {2FCF062E-1A95-46F9-9CEA-CBDA6AD55E32}
 		{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE} = {550A286D-683D-4838-9485-129A7C808E68}
 		{FEDF9486-499C-4440-BB85-1CAC997A7441} = {E69C1495-5255-4933-BAF8-4DFA0C3576D5}
+		{E204DD87-78FF-457E-BCA7-8221E07452DB} = {62B8D196-1A11-44F3-9413-C7CA9512B77F}
 	EndGlobalSection
 EndGlobal
