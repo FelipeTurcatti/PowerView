@@ -51,6 +51,10 @@
       <HintPath>..\packages\MongoDB.Driver.Core.2.4.4\lib\net45\MongoDB.Driver.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MongoRepository.Net45, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoRepository2x.2.4.2-alpha\lib\net45\MongoRepository.Net45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,8 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoDBUtil.cs" />
-    <Compile Include="MongoDB\Measurement.cs" />
+    <Compile Include="Abstractions\IMeasurementRepository.cs" />
+    <Compile Include="MeasurementRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +79,12 @@
       <Project>{0d89a850-f687-4724-b9b7-5b72d7cfb30e}</Project>
       <Name>PowerView.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PowerView.Domain\PowerView.Domain.csproj">
+      <Project>{eacd8269-abea-4eef-9821-83544fc419a9}</Project>
+      <Name>PowerView.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

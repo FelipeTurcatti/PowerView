@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PowerView.DataAccess;
-using PowerView.DataAccess.MongoDB;
+using PowerView.DataAccess.Abstractions;
+using PowerView.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,17 @@ namespace PowerView.IoT.Ingestion
 
         private readonly String _topic;
 
+        private readonly IMeasurementRepository _measurementRepository;
+
         #endregion
 
         #region Constructor
 
-        public MetricIngestor()
+        public MetricIngestor(IMeasurementRepository measurementRepository)
         {
+
+            this._measurementRepository = measurementRepository;
+
             this._topic = "/test";
 
             // use a unique id as client id, each time we start the application 
@@ -67,12 +73,13 @@ namespace PowerView.IoT.Ingestion
 
         private void OnMessagePublishReceived(Object sender, MqttMsgPublishEventArgs e)
         {
-            string receivedMessage = Encoding.UTF8.GetString(e.Message);
+            String metric = Encoding.UTF8.GetString(e.Message);
 
-            Measurement measured = JsonConvert.DeserializeObject<Measurement>(receivedMessage);
-            measured.CreationDate = DateTime.Now;
-            MongoDBUtil.InsertOne<Measurement>(measured);
+            Measurement measurement = JsonConvert.DeserializeObject<Measurement>(metric);
+
+            this._measurementRepository.Add(measurement);
         }
+
         #endregion
     }
 }

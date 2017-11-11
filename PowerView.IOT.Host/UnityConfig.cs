@@ -1,4 +1,6 @@
-﻿using PowerView.IoT.Ingestion;
+﻿using PowerView.DataAccess;
+using PowerView.DataAccess.Abstractions;
+using PowerView.IoT.Ingestion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace PowerView.IOT.Host
         public static void RegisterComponents(IUnityContainer container)
         {            
             container.RegisterType<IMetricIngestor, MetricIngestor>();
+
+            container.RegisterType<IMeasurementRepository, MeasurementRepository>();
         }
     }
 
