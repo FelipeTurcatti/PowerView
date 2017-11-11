@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceAccess", "ResourceA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.IOT.Host", "PowerView.IOT.Host\PowerView.IOT.Host.csproj", "{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.IoT.Ingestion.Tests", "PowerView.IoT.Ingestion.Tests\PowerView.IoT.Ingestion.Tests.csproj", "{FEDF9486-499C-4440-BB85-1CAC997A7441}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDF9486-499C-4440-BB85-1CAC997A7441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{991793CD-4889-402F-808C-236FDAA32D5D} = {E69C1495-5255-4933-BAF8-4DFA0C3576D5}
 		{D7A47550-4779-4C9C-BC12-A95A7C2EE0BE} = {2FCF062E-1A95-46F9-9CEA-CBDA6AD55E32}
 		{3A232FF2-7D1B-4C73-BB49-A27C6F2EE5FE} = {550A286D-683D-4838-9485-129A7C808E68}
+		{FEDF9486-499C-4440-BB85-1CAC997A7441} = {E69C1495-5255-4933-BAF8-4DFA0C3576D5}
 	EndGlobalSection
 EndGlobal
