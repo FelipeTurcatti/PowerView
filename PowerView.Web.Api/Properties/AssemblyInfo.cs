@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerView.Web.UI")]
+[assembly: AssemblyTitle("PowerView.Web.Api")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("PowerView.Web.UI")]
+[assembly: AssemblyProduct("PowerView.Web.Api")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("71b4b67b-bba2-4610-91f1-7b672217bfb2")]
+[assembly: Guid("42e53e7e-bde4-450e-9e22-8a2c57ea0e3d")]
 
 // Version information for an assembly consists of the following four values:
 //
