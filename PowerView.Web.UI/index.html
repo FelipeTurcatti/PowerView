@@ -298,24 +298,12 @@
       <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
-            <p>Lisandro Schneir</p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>Lisandro Schneir</p>
         </div>
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
-        <!-- /.search form -->
+
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MAIN NAVIGATION</li>
+          <li class="header">MENU PRINCIPAL</li>
           <li class="active treeview">
             <a href="#">
               <i class="fa fa-dashboard"></i> <span>Sensores</span>
@@ -346,8 +334,37 @@
         </ol>
       </section>
       <!-- Main content -->
-     </div>
-    
+      <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <!-- interactive chart -->
+            <div class="box box-primary">
+              <div class="box-header">
+                <i class="fa fa-bar-chart-o"></i>
+                <h3 class="box-title">Area Chart</h3>
+                <div class="box-tools pull-right">
+                  Real time
+                  <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                    <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
+                    <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                  </div>
+                </div>
+              </div>
+              <div class="box-body">
+                <div id="interactive" style="height: 300px;"></div>
+              </div><!-- /.box-body-->
+            </div><!-- /.box -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+        <div id="placeholder" style="width:600px;height:300px"></div>
+
+
+
+      </section>
+    </div>
+
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Create the tabs -->
@@ -519,13 +536,15 @@
     <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
+  
+
   <!-- jQuery 3 -->
   <script src="Scripts/jquery-1.9.1.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
-  $.widget.bridge('uibutton', $.ui.button);
+    $.widget.bridge('uibutton', $.ui.button);
   </script>
   <!-- Bootstrap 3.3.7 -->
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -556,5 +575,121 @@
   <script src="dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+
+  <script src="Scripts/flot/jquery.flot.min.js" type="text/javascript"></script>
+  <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+  <script src="Scripts/flot/jquery.flot.resize.min.js"></script>
+  <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+  <script src="Scripts/flot/jquery.flot.pie.min.js"></script>
+  <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+  <script src="Scripts/flot/jquery.flot.categories.min.js"></script>
+
+  <!-- Page script -->
+  <script type="text/javascript">
+
+    $(function () {
+
+      /*
+       * Flot Interactive Chart
+       * -----------------------
+       */
+      // We use an inline data source in the example, usually data would
+      // be fetched from a server
+      var data = [], totalPoints = 100;
+      function getRandomData() {
+
+        if (data.length > 0)
+          data = data.slice(1);
+
+        // Do a random walk
+        while (data.length < totalPoints) {
+
+          var prev = data.length > 0 ? data[data.length - 1] : 50,
+            y = prev + Math.random() * 10 - 5;
+
+          if (y < 0) {
+            y = 0;
+          } else if (y > 100) {
+            y = 100;
+          }
+
+          data.push(y);
+        }
+
+        // Zip the generated y values with the x values
+        var res = [];
+        for (var i = 0; i < data.length; ++i) {
+          res.push([i, data[i]]);
+        }
+
+        return res;
+      }
+
+      var interactive_plot = $.plot("#interactive", [getRandomData()], {
+        grid: {
+          borderColor: "#f3f3f3",
+          borderWidth: 1,
+          tickColor: "#f3f3f3"
+        },
+        series: {
+          shadowSize: 0, // Drawing is faster without shadows
+          color: "#3c8dbc"
+        },
+        lines: {
+          fill: true, //Converts the line chart to area chart
+          color: "#3c8dbc"
+        },
+        yaxis: {
+          min: 0,
+          max: 100,
+          show: true
+        },
+        xaxis: {
+          show: true
+        }
+      });
+
+      var updateInterval = 500; //Fetch data ever x milliseconds
+      var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
+      function update() {
+
+        interactive_plot.setData([getRandomData()]);
+
+        // Since the axes don't change, we don't need to call plot.setupGrid()
+        interactive_plot.draw();
+        if (realtime === "on")
+          setTimeout(update, updateInterval);
+      }
+
+      //INITIALIZE REALTIME DATA FETCHING
+      if (realtime === "on") {
+        update();
+      }
+      //REALTIME TOGGLE
+      $("#realtime .btn").click(function () {
+        if ($(this).data("toggle") === "on") {
+          realtime = "on";
+        }
+        else {
+          realtime = "off";
+        }
+        update();
+      });
+      /*
+       * END INTERACTIVE CHART
+       */
+    });
+
+    /*
+     * Custom Label formatter
+     * ----------------------
+     */
+    function labelFormatter(label, series) {
+      return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
+        + label
+        + "<br/>"
+        + Math.round(series.percent) + "%</div>";
+    }
+  </script>
 </body>
 </html>
