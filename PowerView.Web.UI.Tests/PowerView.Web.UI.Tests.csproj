@@ -113,10 +113,6 @@
       <Project>{0d89a850-f687-4724-b9b7-5b72d7cfb30e}</Project>
       <Name>PowerView.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PowerView.Web.UI\PowerView.Web.UI.csproj">
-      <Project>{4DA0FBA5-6281-4B54-8DFA-B18B70E8C63C}</Project>
-      <Name>PowerView.Web.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
