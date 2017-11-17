@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PowerView.Domain.Logic.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,8 +8,25 @@ using System.Web.Http;
 
 namespace PowerView.Web.Api.Controllers
 {
+    /// <summary>
+    /// Supports CRUD operations related to a set of Sensors.-
+    /// </summary>
     public class SensorController : ApiController
     {
+        private ISensorService _sensorService;
+
+        #region Constructor
+        /// <summary>
+        /// Supports CRUD operations related to a set of Sensors.-
+        /// </summary>
+        /// <param name="sensorService"></param>
+        public SensorController(ISensorService sensorService)
+        {
+            this._sensorService = sensorService;
+        }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Gets the list of sensors
         /// </summary>
@@ -19,28 +37,26 @@ namespace PowerView.Web.Api.Controllers
         [Route("api/Sensor")]
         public IHttpActionResult Get()
         {
-            return Ok();
+            var sensors = this._sensorService.GetSensors();
+            return Ok(sensors);
         }
 
-        // GET: api/Sensor/5
-        public string Get(int id)
+        
+        /// <summary>
+        /// Get sensor by ID
+        /// </summary>
+        /// <response code="200">Ok</response>
+        /// <response code="400">Bad Request</response>        
+        /// <returns>A sensor</returns>
+        [HttpGet]
+        [Route("api/Sensor/{sensorID}")]
+        public IHttpActionResult Get(Int32 sensorID)
         {
-            return "value";
+            var sensor = this._sensorService.GetSensor(sensorID);
+            return Ok(sensor);
         }
 
-        // POST: api/Sensor
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Sensor/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Sensor/5
-        public void Delete(int id)
-        {
-        }
+        
+        #endregion
     }
 }
