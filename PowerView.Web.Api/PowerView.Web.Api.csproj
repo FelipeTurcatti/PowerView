@@ -92,10 +92,6 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -144,10 +140,6 @@
       <HintPath>..\packages\Unity.WebAPI.5.3.0\lib\net45\Unity.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http.Formatting">
@@ -165,7 +157,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\SensorController.cs" />
