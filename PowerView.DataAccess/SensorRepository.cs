@@ -19,12 +19,12 @@ namespace PowerView.DataAccess
         #region Methods
         public IList<Sensor> Get()
         {
-            return this.Get().ToList();
+            return base.Get().ToList();
         }
 
         public Sensor Get(int sensorID)
         {
-            return this.Get(x => x.SensorId==sensorID).FirstOrDefault();
+            return base.Get(x => x.SensorId==sensorID).FirstOrDefault();
         }
         #endregion
     }
