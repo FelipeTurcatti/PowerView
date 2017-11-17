@@ -23,10 +23,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />    
-    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
-    <Use64BitIISExpress />
+    </NuGetPackageImportStamp>    
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
