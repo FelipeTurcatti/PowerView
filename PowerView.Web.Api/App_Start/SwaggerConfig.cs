@@ -13,13 +13,9 @@ namespace PowerView.Web.Api
         {
             config.EnableSwagger(c =>
             {
-                c.SingleApiVersion("v1", "PowerView API")
-                .Description("Power view Web Api services")
-                .Contact(cc => cc.Name("Lisandro \"El Lechón\" Schneir")
-                .Url("https://github.com/FelipeTurcatti/PowerView")
-                .Email("lisandro.schneir@gmail.com"))
-                .License(lc => lc.Name("License")
-                .Url("https://github.com/FelipeTurcatti/PowerView"));
+                c.SingleApiVersion("v1", "PowerView API");
+                c.IncludeXmlComments(string.Format(@"{0}\bin\PowerView.Web.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory));
+                
             }).EnableSwaggerUi();
 
         }
