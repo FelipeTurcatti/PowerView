@@ -11,7 +11,7 @@ namespace PowerView.DataAccess
 
     public class PowerViewDbContext : DbContext
     {
-        public PowerViewDbContext() : base()
+        public PowerViewDbContext() : base("PowerView")
         {
 
         }

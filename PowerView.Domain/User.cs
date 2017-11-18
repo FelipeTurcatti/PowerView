@@ -13,8 +13,8 @@ namespace PowerView.Domain
         public String Password { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }   
-        public DateTime CreationDate { get; set; }    
-
+        public DateTime CreationDate { get; set; } 
+        public String TelephoneNumber { get; set; }
 
     }
 }
