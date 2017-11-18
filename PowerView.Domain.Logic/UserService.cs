@@ -23,11 +23,11 @@ namespace PowerView.Domain.Logic
         #region Method        
         public User GetUser(Int32 usr)
         {
-            return _userRepository.Get(usr);
+            return this._userRepository.Get(usr);
         }
         public IList<User> GetUsers()
         {
-            return _userRepository.Get();
+            return this._userRepository.Get();
         }        
         #endregion
     }
