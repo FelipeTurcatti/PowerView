@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Common", "PowerView.Common\PowerView.Common.csproj", "{0D89A850-F687-4724-B9B7-5B72D7CFB30E}"
 EndProject
@@ -37,7 +37,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Domain.Logic", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Web.Api", "PowerView.Web.Api\PowerView.Web.Api.csproj", "{42E53E7E-BDE4-450E-9E22-8A2C57EA0E3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Web.UI", "PowerView.Web.UI\PowerView.Web.UI.csproj", "{71B4B67B-BBA2-4610-91F1-7B672217BFB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerView.Web.UI_deprecated", "PowerView.Web.UI_reprecated\PowerView.Web.UI_deprecated.csproj", "{71B4B67B-BBA2-4610-91F1-7B672217BFB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,5 +110,8 @@ Global
 		{E204DD87-78FF-457E-BCA7-8221E07452DB} = {62B8D196-1A11-44F3-9413-C7CA9512B77F}
 		{42E53E7E-BDE4-450E-9E22-8A2C57EA0E3D} = {D6A0864D-1B48-4B81-9138-0E23ACC437FB}
 		{71B4B67B-BBA2-4610-91F1-7B672217BFB2} = {D6A0864D-1B48-4B81-9138-0E23ACC437FB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB64D598-FF20-464A-8614-85325E411101}
 	EndGlobalSection
 EndGlobal
