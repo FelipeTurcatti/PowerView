@@ -74,11 +74,16 @@ namespace PowerView.IoT.Ingestion
         {
             String metric = Encoding.UTF8.GetString(e.Message);
 
-            Measurement measurement = JsonConvert.DeserializeObject<Measurement>(metric);
+            Measurement measurement = GetMeasurement(metric);
 
             this._measurementRepository.Add(measurement);
         }
 
+        public Measurement GetMeasurement(String metric)
+        {
+            Measurement measurement = JsonConvert.DeserializeObject<Measurement>(metric);            
+            return measurement;
+        }
         #endregion
     }
 }
