@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Newtonsoft.Json;
+using NUnit.Framework;
 using PowerView.DataAccess.Abstractions;
 using PowerView.Domain;
 using PowerView.Infrastructure;
@@ -100,18 +101,33 @@ namespace PowerView.IoT.Ingestion.Tests
             this._target.Connect();
 
             //Act.-
-            this._mqttClient.Raise(e => e.MqttMsgPublishReceived += null, this._mqttClient, new MqttMsgPublishEventArgs("/test", 
+            this._mqttClient.Raise(e => e.MqttMsgPublishReceived += null, this._mqttClient, new MqttMsgPublishEventArgs("/test",
                 Encoding.UTF8.GetBytes("{\"sensorId\": \"1\",\"measurementUnitId\": 1,\"value\": 12.5,\"creationDate\": \"2017/11/10\"}"),
                 false,
                 2,
                 true)
             );
-            
+
             //Assert.-
             this._measurementRepository.AssertWasCalled(e => e.Add(Arg<Measurement>.Is.TypeOf), e => e.Repeat.Once());
+        }
+
+        [Test]
+        public void Should_convert_MetricDTO_to_Measurement()
+        {
+            //Arrange.-
+            Measurement measurement = new Measurement() { SensorId = "1", MeasurementUnitId = 1, Value = new Random(DateTime.Now.Millisecond).NextDouble() };          
+            String valmeasure = JsonConvert.SerializeObject(measurement);
+
+            //Act.-
+            Measurement metric = this._target.GetMeasurement(valmeasure);
+
+            //Assert.-
+            Assert.AreEqual("1", metric.SensorId);
         }
 
         #endregion
 
     }
 }
+   

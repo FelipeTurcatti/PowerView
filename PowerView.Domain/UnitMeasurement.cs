@@ -11,5 +11,6 @@ namespace PowerView.Domain
         public int UnitMeasurementId { get; set; }
         public String Name { get; set; }
         public String Simbol { get; set; }
+        public Boolean TotalizeValue { get; set; }
     }
 }

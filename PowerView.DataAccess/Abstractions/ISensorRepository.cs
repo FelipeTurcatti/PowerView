@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PowerView.DataAccess.Abstractions
 {
-    public interface IUserRepository
+    public interface ISensorRepository
     {
-        User Get(Int32 usrID);
+        Sensor Get(Int32 sensorID);
 
-        IList<User> Get();
+        IList<Sensor> Get();
     }
 }
