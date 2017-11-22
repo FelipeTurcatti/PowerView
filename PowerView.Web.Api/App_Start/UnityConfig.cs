@@ -10,18 +10,13 @@ namespace PowerView.Web.Api
 {
     public static class UnityConfig
     {
-        public static void RegisterComponents()
+        public static void Register(HttpConfiguration config)
         {
-			var container = new UnityContainer();
-
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-
-            // e.g. container.RegisterType<ITestService, TestService>();
-            
+            var container = new UnityContainer();
             container.RegisterType<ISensorRepository, SensorRepository>();
             container.RegisterType<ISensorService, SensorService>();
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            
+            config.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
 }
