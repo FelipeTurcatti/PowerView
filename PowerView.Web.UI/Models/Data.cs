@@ -6,8 +6,15 @@ using System.Web;
 
 namespace PowerView.Web.UI.Domain
 {
-    public class Data
+    /// <summary>
+    /// Class containing the Navigation bar action items.-
+    /// </summary>
+    public class Menu
     {
+        /// <summary>
+        /// Get Nav bar items.-
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Navbar> navbarItems()
         {
             var menu = new List<Navbar>();
@@ -28,7 +35,7 @@ namespace PowerView.Web.UI.Domain
             menu.Add(new Navbar { Id = 15, nameOption = "Second Level Item", status = true, isParent = false, parentId = 14 });
             menu.Add(new Navbar { Id = 16, nameOption = "Sample Pages", imageClass = "fa fa-files-o fa-fw", status = true, isParent = true, parentId = 0 });
             menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
-            menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = true, isParent = false, parentId = 16 });
+            menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = false, isParent = false, parentId = 16 });
 
             return menu.ToList();
         }

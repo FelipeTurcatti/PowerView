@@ -3,9 +3,18 @@ using System.Web.Optimization;
 
 namespace PowerView.Web.UI
 {
+    /// <summary>
+    /// Bundle configuration
+    /// </summary>
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+        /// <summary>
+        /// Bundles registering
+        /// </summary>
+        ///<remarks>
+        ///For more information see http://go.microsoft.com/fwlink/?LinkId=301862
+        ///</remarks>        
+        /// <param name="bundles">Bundle collection.-</param>        
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

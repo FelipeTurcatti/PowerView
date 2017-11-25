@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        @Html.ActionLink("Zarsa", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("PowerView", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
@@ -238,7 +238,7 @@
                     </div>
                     <!-- /input-group -->
                 </li>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Where(e=> e.status == true))
                 {
                     if (item.isParent == false && item.parentId == 0)
                     {
@@ -251,7 +251,7 @@
                             <li>
                                 <a href="#"><i class="@item.imageClass"></i> @item.nameOption<span class="fa arrow"></span></a>                          
                                 <ul class="nav nav-second-level">
-                                    @foreach (var child in Model.Where(p => p.parentId == item.Id))
+                                    @foreach (var child in Model.Where(p => p.parentId == item.Id && p.status == true))
                                     {
                                         if (child.controller == null)
                                         {

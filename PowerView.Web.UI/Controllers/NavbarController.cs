@@ -8,12 +8,18 @@ using System.Web.Mvc;
 
 namespace PowerView.Web.UI.Controllers
 {
+    /// <summary>
+    /// Navigation controller
+    /// </summary>
     public class NavbarController : Controller
     {
-        // GET: Navbar
+        /// <summary>
+        /// Get Nav bar.-
+        /// </summary>
+        /// <returns>Navigation bar's partial view.-</returns>
         public ActionResult Index()
         {
-            var data = new Data();
+            var data = new Menu();
             return PartialView("_Navbar", data.navbarItems().ToList());
         }
     }
