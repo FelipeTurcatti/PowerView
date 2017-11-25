@@ -18,6 +18,8 @@ namespace PowerView.Web.UI.Domain
         public IEnumerable<Navbar> navbarItems()
         {
             var menu = new List<Navbar>();
+
+            //Examples, might be deleted once we start using the dashboard.-
             menu.Add(new Navbar { Id = 1, nameOption = "Dashboard", controller = "Home", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
             menu.Add(new Navbar { Id = 2, nameOption = "Charts", imageClass = "fa fa-bar-chart-o fa-fw", status = true, isParent = true, parentId = 0 });
             menu.Add(new Navbar { Id = 3, nameOption = "Flot Charts", controller = "Home", action = "FlotCharts", status = true, isParent = false, parentId = 2 });
@@ -37,7 +39,11 @@ namespace PowerView.Web.UI.Domain
             menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
             menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = false, isParent = false, parentId = 16 });
 
-            return menu.ToList();
+            //Adminitración de Sensores.-
+            menu.Add(new Navbar { Id = 19, nameOption = "Configuración", imageClass = "fa fa-wrench fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 20, nameOption = "Sensores", controller = "SensorAdmin", action = "Index", status = true, isParent = false, parentId = 19 });
+
+            return menu;
         }
     }
 }

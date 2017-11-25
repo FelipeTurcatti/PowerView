@@ -215,6 +215,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
+    <Compile Include="Controllers\SensorAdminController.cs" />
     <Compile Include="Controllers\SensorController.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Global.asax.cs">
@@ -1029,6 +1030,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Domain\" />
+    <Folder Include="Views\SensorAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

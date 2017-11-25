@@ -13,7 +13,12 @@ namespace PowerView.Web.UI.Controllers
     /// </summary>
     public class SensorController : ApiController
     {
-        private ISensorService _sensorService;
+
+        #region Members
+
+        private readonly ISensorService _sensorService;
+
+        #endregion
 
         #region Constructor
         /// <summary>
@@ -27,6 +32,7 @@ namespace PowerView.Web.UI.Controllers
         #endregion
 
         #region Methods
+
         /// <summary>
         /// Gets the list of sensors
         /// </summary>
@@ -40,7 +46,6 @@ namespace PowerView.Web.UI.Controllers
             var sensors = this._sensorService.GetSensors();
             return Ok(sensors);
         }
-
         
         /// <summary>
         /// Get sensor by ID
@@ -55,8 +60,8 @@ namespace PowerView.Web.UI.Controllers
             var sensor = this._sensorService.GetSensor(sensorID);
             return Ok(sensor);
         }
-
         
         #endregion
+
     }
 }
