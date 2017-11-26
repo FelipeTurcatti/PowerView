@@ -286,36 +286,3 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
-
-
-# Typescript Auto-generated files
-
-# Note: all files must be TS files in this directory or ordinary JS files could be removed
-
-# Modify as needed to preserve files and be more explicit
-
-PowerView.Web.UI/src/*.js
-
-PowerView.Web.UI/src/*.js.map
-
-PowerView.Web.UI/src/app/*.js
-
-!PowerView.Web.UI/src/systemjs-angular-loader.js
-
-!PowerView.Web.UI/src/systemjs.config.extras.js
-
-!PowerView.Web.UI/src/systemjs.config.js
-
-PowerView.Web.UI/src/app/*.js.map
-
-PowerView.Web.UI/src/app/controllers/*.js
-
-PowerView.Web.UI/src/app/controllers/*.js.map
-
-PowerView.Web.UI/src/app/services/*.js
-
-PowerView.Web.UI/src/app/services/*.js.map
-
-PowerView.Web.UI/src/app/sensor/*.js
-
-PowerView.Web.UI/src/app/sensor/*.js.map
