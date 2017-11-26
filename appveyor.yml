@@ -13,5 +13,6 @@ test_script:
   - npm --version
   
 before_build:
+  - cd C:\
   - nuget restore
 
