@@ -3,7 +3,8 @@ install:
   # Get the latest stable version of Node.js
   - ps: Install-Product node
   # install modules
-  - npm install
+  - cd C:\projects\powerview\PowerView.Web.UI
+  - npm install PowerView.Web.UI\package.json
 
 # Post-install test scripts.
 test_script:
