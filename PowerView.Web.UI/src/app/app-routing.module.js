@@ -17,6 +17,10 @@ var routes = [
     {
         path: 'SensorAdmin/Index',
         redirectTo: 'sensor'
+    },
+    {
+        path: 'SensorAdmin',
+        redirectTo: 'sensor'
     }
 ];
 var AppRoutingModule = (function () {

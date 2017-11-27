@@ -11,6 +11,10 @@ const routes: Routes = [
     {
         path: 'SensorAdmin/Index',
         redirectTo: 'sensor'
+    },
+    {
+        path: 'SensorAdmin',
+        redirectTo: 'sensor'
     }
 ];
 

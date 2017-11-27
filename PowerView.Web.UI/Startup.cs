@@ -1,7 +1,9 @@
-﻿using Owin;
+﻿using Newtonsoft.Json.Serialization;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -25,6 +27,13 @@ namespace PowerView.Web.UI
 
             HttpConfiguration httpConfiguration = new HttpConfiguration();
 
+            WebApiConfig.Register(httpConfiguration);
+
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            JsonMediaTypeFormatter jsonFormatter = httpConfiguration.Formatters.OfType<JsonMediaTypeFormatter>().First<JsonMediaTypeFormatter>();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             AreaRegistration.RegisterAllAreas();
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -34,9 +43,7 @@ namespace PowerView.Web.UI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             httpConfiguration.DependencyResolver = new UnityDependencyResolver(UnityConfig.Container);
-
-            WebApiConfig.Register(httpConfiguration);
-
+            
             SwaggerConfig.Register(httpConfiguration);
 
             app.UseWebApi(httpConfiguration);
