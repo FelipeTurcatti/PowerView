@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PowerView.Domain
 {
-    public class Sensor 
+    public class Metric 
     {
         [Required]
-        public int SensorId { get; set; }
+        public int MetricId { get; set; }
 
         [MaxLength(200)]
         [Required]
@@ -18,12 +19,12 @@ namespace PowerView.Domain
 
         [MaxLength(200)]
         [Required]
-        public String Description { get; set; }  
+        public String Description { get; set; }
+        
+        [Required]
+        public UnitMeasurement UnitMeasurement { get; set; }
+       
+        public Controller Controller { get; set; }
 
-        public String Location { get; set; }
-
-        public String Note { get; set; }
-
-        public List<UnitMeasurement> UnitMeasurementList { get; set; }
     }
 }

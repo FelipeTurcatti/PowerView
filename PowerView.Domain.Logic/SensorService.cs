@@ -8,25 +8,27 @@ using System.Threading.Tasks;
 
 namespace PowerView.Domain.Logic
 {
-    public class SensorService : ISensorService
+    public class ControllerService : IControllerService
     {
-        private readonly ISensorRepository _SensorRepository;
+        private readonly IControllerRepository _controllerRepository;
 
         #region Constructor
-        public SensorService(ISensorRepository sensorRepository)
+
+        public ControllerService(IControllerRepository controllerRepository)
         {
-            this._SensorRepository = sensorRepository;
+            this._controllerRepository = controllerRepository;
         }
+
         #endregion
 
-        public Sensor GetSensor(int sensorID)
+        public Controller GetController(Int32 controllerID)
         {
-            return this._SensorRepository.Get(sensorID);
+            return this._controllerRepository.Get(controllerID);
         }
 
-        public IList<Sensor> GetSensors()
+        public IList<Controller> GetControllers()
         {
-            return this._SensorRepository.Get();
+            return this._controllerRepository.Get();
         }
     }
 }

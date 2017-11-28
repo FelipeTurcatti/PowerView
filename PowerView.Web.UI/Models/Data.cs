@@ -39,9 +39,9 @@ namespace PowerView.Web.UI.Domain
             menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
             menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = false, isParent = false, parentId = 16 });
 
-            //Adminitración de Sensores.-
+            //Adminitración de Controladores.-
             menu.Add(new Navbar { Id = 19, nameOption = "Configuración", imageClass = "fa fa-wrench fa-fw", status = true, isParent = true, parentId = 0 });
-            menu.Add(new Navbar { Id = 20, nameOption = "Sensores", controller = "SensorAdmin", action = "Index", status = true, isParent = false, parentId = 19 });
+            menu.Add(new Navbar { Id = 20, nameOption = "Controladores", controller = "ControllerAdmin", action = "Index", status = true, isParent = false, parentId = 19 });
 
             return menu;
         }

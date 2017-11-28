@@ -8,24 +8,28 @@ using System.Threading.Tasks;
 
 namespace PowerView.DataAccess
 {
-    public class SensorRepository : GenericEntityFrameworkRepository<Sensor>, ISensorRepository
+    public class ControllerRepository : GenericEntityFrameworkRepository<Controller>, IControllerRepository
     {
         #region Constructor
-        public SensorRepository(PowerViewDbContext context) : base(context)
+
+        public ControllerRepository(PowerViewDbContext context) : base(context)
         {
         }
+
         #endregion
 
         #region Methods
-        public IList<Sensor> Get()
+
+        public IList<Controller> Get()
         {
             return base.Get().ToList();
         }
 
-        public Sensor Get(int sensorID)
+        public Controller Get(Int32 controllerID)
         {
-            return base.Get(x => x.SensorId==sensorID).FirstOrDefault();
+            return base.Get(x => x.ControllerId == controllerID).FirstOrDefault();
         }
+
         #endregion
     }
 }
