@@ -31,8 +31,10 @@ namespace PowerView.DataAccess.Migrations
 
             context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() { UnitMeasurementId = 5, Name = "Energy", Simbol = "kWh" });
 
+            context.SaveChanges();
+
             context.Controllers.AddOrUpdate(new Domain.Controller() { ControllerId = 999, Name = "Controller Test", Description = "Test",
-                Metrics = new System.Collections.Generic.List<Domain.Metric>() { new Domain.Metric() { MetricId = 1, Description = "Test Metric", Name = "Test metric name", UnitMeasurement = new Domain.UnitMeasurement() { UnitMeasurementId = 1 } } } });
+                Metrics = new System.Collections.Generic.List<Domain.Metric>() { new Domain.Metric() { MetricId = 1, Description = "Test Metric", Name = "Test metric name", UnitMeasurement = context.UnitMeasurements.First(e => e.UnitMeasurementId == 1) } } });
             
             context.SaveChanges();
         }
