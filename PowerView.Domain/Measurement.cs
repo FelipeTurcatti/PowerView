@@ -11,15 +11,15 @@ namespace PowerView.Domain
     public class Measurement: Entity
     {
         [System.Runtime.Serialization.DataMemberAttribute]
-        public String SensorId { get; set; }
+        public String ControllerId { get; set; }
 
         [System.Runtime.Serialization.DataMemberAttribute]
-        public Int32 MeasurementUnitId { get; set; }
+        public Int32 UnitMeasurementId { get; set; }
 
         [System.Runtime.Serialization.DataMemberAttribute]
         public Double Value { get; set; }
 
         [System.Runtime.Serialization.DataMemberAttribute]
         public DateTime CreationDate { get; set; }
-    }    
+    }
 }

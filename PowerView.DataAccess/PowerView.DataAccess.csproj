@@ -75,6 +75,14 @@
     <Compile Include="Abstractions\IUserRepository.cs" />
     <Compile Include="GenericEntityFrameworkRepository.cs" />
     <Compile Include="MeasurementRepository.cs" />
+    <Compile Include="Migrations\201711281852150_InitialCreate.cs" />
+    <Compile Include="Migrations\201711281852150_InitialCreate.Designer.cs">
+      <DependentUpon>201711281852150_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711281904393_AddForeignKeyNames.cs" />
+    <Compile Include="Migrations\201711281904393_AddForeignKeyNames.Designer.cs">
+      <DependentUpon>201711281904393_AddForeignKeyNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PowerViewDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +101,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711281852150_InitialCreate.resx">
+      <DependentUpon>201711281852150_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711281904393_AddForeignKeyNames.resx">
+      <DependentUpon>201711281904393_AddForeignKeyNames.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

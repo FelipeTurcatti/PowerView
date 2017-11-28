@@ -7,9 +7,9 @@ using System.Web.Mvc;
 namespace PowerView.Web.UI.Controllers
 {
     /// <summary>
-    /// Sensor administration controller.-
+    /// controller administration controller.-
     /// </summary>
-    public class SensorAdminController : Controller
+    public class controllerAdminController : Controller
     {
         /// <summary>
         /// Main view.-

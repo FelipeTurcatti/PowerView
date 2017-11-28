@@ -11,7 +11,7 @@ namespace PowerView.DataAccess.Migrations
         {
             AutomaticMigrationsEnabled = true;        
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "PowerView.DataAccess.PowerViewDbContext";
+            ContextKey = "PowerView.DataAccess.PowerViewDbContext";            
         }
         
         protected override void Seed(PowerView.DataAccess.PowerViewDbContext context)
@@ -20,10 +20,20 @@ namespace PowerView.DataAccess.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            SensorRepository rep = new SensorRepository(context);
+            
+            context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() {UnitMeasurementId = 1, Name = "Volt", Simbol = "V" });
 
-            rep.Insert(new Domain.Sensor() { SensorId = 999, Name = "Sensor Test", Description = "Test", Location = "Test", Note = "Test" });
+            context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() { UnitMeasurementId = 2, Name = "Watts", Simbol = "W" });
 
+            context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() { UnitMeasurementId = 3, Name = "Ampere", Simbol = "I" });
+
+            context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() { UnitMeasurementId = 4, Name = "Hertz", Simbol = "Hz" });
+
+            context.UnitMeasurements.AddOrUpdate(new Domain.UnitMeasurement() { UnitMeasurementId = 5, Name = "Energy", Simbol = "kWh" });
+
+            context.Controllers.AddOrUpdate(new Domain.Controller() { ControllerId = 999, Name = "Controller Test", Description = "Test",
+                Metrics = new System.Collections.Generic.List<Domain.Metric>() { new Domain.Metric() { MetricId = 1, Description = "Test Metric", Name = "Test metric name", UnitMeasurement = new Domain.UnitMeasurement() { UnitMeasurementId = 1 } } } });
+            
             context.SaveChanges();
         }
     }

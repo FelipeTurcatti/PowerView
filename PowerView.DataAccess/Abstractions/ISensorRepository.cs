@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PowerView.DataAccess.Abstractions
 {
-    public interface ISensorRepository
+    public interface IControllerRepository
     {
-        Sensor Get(Int32 sensorID);
+        Controller Get(Int32 controllerID);
 
-        IList<Sensor> Get();
+        IList<Controller> Get();
     }
 }

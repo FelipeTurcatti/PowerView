@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PowerView.Domain.Logic.Interface
 {
-    public interface ISensorService
+    public interface IControllerService
     {
-        Sensor GetSensor(Int32 sensorID);
+        Controller GetController(Int32 controllerID);
 
-        IList<Sensor> GetSensors();
+        IList<Controller> GetControllers();
     }
 }
