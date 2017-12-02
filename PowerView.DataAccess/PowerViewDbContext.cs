@@ -25,6 +25,8 @@ namespace PowerView.DataAccess
 
         public DbSet<UnitMeasurement> UnitMeasurements { get; set; }
 
+        public DbSet<MetricController> MetricControllers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

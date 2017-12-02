@@ -18,7 +18,7 @@
     <AssemblyName>PowerView.Web.UI</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -41,6 +41,7 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile>bin\PowerView.Web.UI.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -191,6 +192,9 @@
     <Reference Include="Unity.Interception.Configuration, Version=5.0.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.3.1\lib\net45\Unity.Interception.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mvc, Version=5.0.8.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.5.0.8\lib\net47\Unity.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RegistrationByConvention, Version=2.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.3.1\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
@@ -213,11 +217,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
-    <Compile Include="Controllers\SensorAdminController.cs" />
+    <Compile Include="Controllers\ControllerAdminController.cs" />
     <Compile Include="Controllers\ControllerController.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Global.asax.cs">
@@ -662,6 +667,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\timeline.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1026,7 +1032,11 @@
     <Content Include="Views\Home\Grid.cshtml" />
     <Content Include="Views\Home\Blank.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\controllerAdmin\Index.cshtml" />
+    <Content Include="Views\ControllerAdmin\Index.cshtml" />
+    <Content Include="Views\ControllerAdmin\Details.cshtml" />
+    <Content Include="Views\ControllerAdmin\Create.cshtml" />
+    <Content Include="Views\ControllerAdmin\Edit.cshtml" />
+    <Content Include="Views\ControllerAdmin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1077,7 +1087,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>29128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

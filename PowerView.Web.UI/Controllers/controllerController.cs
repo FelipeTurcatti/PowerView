@@ -43,7 +43,7 @@ namespace PowerView.Web.UI.Controllers
         [Route("api/Controller")]
         public IHttpActionResult Get()
         {
-            var controllers = this._controllerService.GetControllers();
+            var controllers = this._controllerService.Get();
             return Ok(controllers);
         }
 
@@ -57,7 +57,7 @@ namespace PowerView.Web.UI.Controllers
         [Route("api/Controller/{controllerID}")]
         public IHttpActionResult Get(Int32 controllerID)
         {
-            var controller = this._controllerService.GetController(controllerID);
+            var controller = this._controllerService.GetByID(controllerID);
             return Ok(controllerID);
         }
         

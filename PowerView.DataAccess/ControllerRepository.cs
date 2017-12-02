@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace PowerView.DataAccess
 {
@@ -15,21 +16,9 @@ namespace PowerView.DataAccess
         public ControllerRepository(PowerViewDbContext context) : base(context)
         {
         }
-
         #endregion
 
         #region Methods
-
-        public IList<Controller> Get()
-        {
-            return base.Get().ToList();
-        }
-
-        public Controller Get(Int32 controllerID)
-        {
-            return base.Get(x => x.ControllerId == controllerID).FirstOrDefault();
-        }
-
         #endregion
     }
 }

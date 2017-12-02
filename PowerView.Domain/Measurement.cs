@@ -11,10 +11,10 @@ namespace PowerView.Domain
     public class Measurement: Entity
     {
         [System.Runtime.Serialization.DataMemberAttribute]
-        public String ControllerId { get; set; }
+        public String ControllerName { get; set; }
 
         [System.Runtime.Serialization.DataMemberAttribute]
-        public Int32 UnitMeasurementId { get; set; }
+        public String MetricName { get; set; }
 
         [System.Runtime.Serialization.DataMemberAttribute]
         public Double Value { get; set; }

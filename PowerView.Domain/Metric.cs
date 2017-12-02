@@ -24,7 +24,6 @@ namespace PowerView.Domain
         [Required]
         public UnitMeasurement UnitMeasurement { get; set; }
        
-        public Controller Controller { get; set; }
-
+    
     }
 }

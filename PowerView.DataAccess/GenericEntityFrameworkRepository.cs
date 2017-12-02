@@ -55,12 +55,14 @@ namespace PowerView.DataAccess
         public virtual void Insert(TEntity entity)
         {
             this.dbSet.Add(entity);
+            this.context.SaveChanges();
         }
 
         public virtual void Delete(Object id)
         {
             TEntity entityToDelete = this.dbSet.Find(id);
             this.Delete(entityToDelete);
+            this.context.SaveChanges();
         }
 
         public virtual void Delete(TEntity entityToDelete)
@@ -70,12 +72,15 @@ namespace PowerView.DataAccess
                 this.dbSet.Attach(entityToDelete);
             }
             this.dbSet.Remove(entityToDelete);
+            this.context.SaveChanges();
         }
 
         public virtual void Update(TEntity entityToUpdate)
         {
             this.dbSet.Attach(entityToUpdate);
             this.context.Entry(entityToUpdate).State = EntityState.Modified;
+            this.context.SaveChanges();
         }
+
     }
 }   
