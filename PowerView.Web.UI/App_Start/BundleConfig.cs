@@ -18,10 +18,13 @@ namespace PowerView.Web.UI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/bower_components/jquery/jquery.js"));
+                        "~/bower_components/jquery/dist/jquery.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/bower_components/jquery-validation/dist/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            "~/bower_components/jquery-ui/jquery-ui.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -37,6 +40,11 @@ namespace PowerView.Web.UI
                       "~/bower_components/metisMenu/dist/metisMenu.min.css",
                       "~/Content/timeline.css",
                       "~/Content/sb-admin-2.css"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+               "~/bower_components/jquery-ui/themes/base/jquery-ui.css"
+            ));
+
         }
     }
 }
