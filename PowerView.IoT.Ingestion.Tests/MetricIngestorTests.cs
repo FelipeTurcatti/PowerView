@@ -116,14 +116,14 @@ namespace PowerView.IoT.Ingestion.Tests
         public void Should_convert_MetricDTO_to_Measurement()
         {
             //Arrange.-
-            Measurement measurement = new Measurement() { ControllerId = "1", UnitMeasurementId = 1, Value = new Random(DateTime.Now.Millisecond).NextDouble() };          
+            Measurement measurement = new Measurement() { ControllerName= "ControlerBase", MetricName = "MetricBase", Value = new Random(DateTime.Now.Millisecond).NextDouble() };          
             String valmeasure = JsonConvert.SerializeObject(measurement);
 
             //Act.-
             Measurement metric = this._target.GetMeasurement(valmeasure);
 
             //Assert.-
-            Assert.AreEqual("1", metric.ControllerId);
+            Assert.AreEqual("ControlerBase", metric.ControllerName);
         }
 
         #endregion

@@ -1,0 +1,40 @@
+﻿@model PowerView.Domain.Controller
+
+@{
+    ViewBag.Title = "Detalle controladora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+
+</div>
+<br />
+<br />
+<br />
+<div id="pie-container">
+    <table>
+        <tr>
+            <td>
+                <input type="button" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index", "ControllerAdmin")'">
+            </td>
+            <td>
+                <input type="button" class="btn btn-danger" value="Editar" onclick="location.href='@Url.Action("Edit", "ControllerAdmin", new { id = Model.ControllerId })'">
+            </td>
+        </tr>
+    </table>
+</div>

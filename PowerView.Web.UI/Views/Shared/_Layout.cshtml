@@ -26,12 +26,20 @@
     <script src="@Url.Content("~/bower_components/metisMenu/dist/metisMenu.min.js")"></script>
 
 </head>
-<body>
+
+<body>    
     <div id="wrapper">
         <!-- Navigation -->
         @Html.Action("Index", "Navbar")
         
+       
         <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">@ViewBag.Title</h2>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
             @RenderBody()          
         </div>
         <!-- /#page-wrapper -->

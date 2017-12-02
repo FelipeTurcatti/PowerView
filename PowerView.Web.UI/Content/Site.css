@@ -1,0 +1,40 @@
+﻿
+/* ---------- Table ------------------- */
+table.base {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    /*	font-family: Arial, Helvetica, sans-serif ;*/
+    font-weight: normal;
+    border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: x-small;
+}
+table.base td {
+    padding: 4px;
+    text-align: left;
+    border: 1px #000000 solid;
+    font-size: x-small;
+}
+
+table.base th {
+    background-color: #666666;
+    color: #FFFFFF;
+    padding: 4px;
+    text-align: left;
+    border-bottom: 2px #000000 solid;
+    border-top: 2px #000000 solid;
+    border-left: 1px #000000 solid;
+    border-right: 1px #000000 solid;
+    font-weight: bold;
+    font-size: x-small;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+  

@@ -18,6 +18,21 @@ namespace PowerView.Web.UI.Domain
         public IEnumerable<Navbar> navbarItems()
         {
             var menu = new List<Navbar>();
+            //this.GetMenu(menu);
+
+            // Monitoreo 
+            menu.Add(new Navbar { Id = 21, nameOption = "Configuración", imageClass = "fa fa-wrench fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 22, nameOption = "ABM Métricas", controller = "MetricaAdmin", action = "Index", status = true, isParent = false, parentId = 21 });
+            menu.Add(new Navbar { Id = 23, nameOption = "ABM Controladores", controller = "ControllerAdmin", action = "Index", status = true, isParent = false, parentId = 21 });
+
+            menu.Add(new Navbar { Id = 24, nameOption = "Monitoreo", imageClass = "fa fa-bar-chart-o fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 25, nameOption = "Controladores", controller = "Monitorin", action = "Index", status = true, isParent = false, parentId = 24 });
+
+            return menu;
+        }
+
+        private IEnumerable<Navbar> GetMenu(List<Navbar> menu) {
+            
 
             //Examples, might be deleted once we start using the dashboard.-
             menu.Add(new Navbar { Id = 1, nameOption = "Dashboard", controller = "Home", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
@@ -38,11 +53,6 @@ namespace PowerView.Web.UI.Domain
             menu.Add(new Navbar { Id = 16, nameOption = "Sample Pages", imageClass = "fa fa-files-o fa-fw", status = true, isParent = true, parentId = 0 });
             menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
             menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = false, isParent = false, parentId = 16 });
-
-            //Adminitración de Controladores.-
-            menu.Add(new Navbar { Id = 19, nameOption = "Configuración", imageClass = "fa fa-wrench fa-fw", status = true, isParent = true, parentId = 0 });
-            menu.Add(new Navbar { Id = 20, nameOption = "Controladores", controller = "ControllerAdmin", action = "Index", status = true, isParent = false, parentId = 19 });
-
             return menu;
         }
     }
