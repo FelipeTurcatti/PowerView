@@ -1,5 +1,23 @@
-﻿
-@{
-    ViewBag.Title = "Administración de controladores";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿<style>
+    #chart {
+        position: relative;
+        left: 40px;
+    }
+
+    #y_axis {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+    }
+</style>
+
+<div id="chart_container">
+    <div id="y_axis"></div>
+    <div id="chart"></div>
+</div>      
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/powerView.chart.js")"></script>
 }

@@ -10,6 +10,7 @@
     <title>PowerView</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/rickshaw/css")
     @Scripts.Render("~/bundles/modernizr")
 
     <!-- DataTables CSS -->
@@ -20,12 +21,16 @@
     <link href="@Url.Content("~/bower_components/morrisjs/morris.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/bower_components/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
 
+    <!--D3-->
+    @Scripts.Render("~/bundles/d3")
     <!-- jQuery -->
     @Scripts.Render("~/bundles/jquery")   
     <!-- Bootsprap -->
     @Scripts.Render("~/bundles/bootstrap")
     <!-- jQuery UI -->
     @Scripts.Render("~/bundles/jqueryui")
+    <!--Rickshaw-->
+    @Scripts.Render("~/bundles/rickshaw")
     <!-- Side Menu tool -->
     <script src="@Url.Content("~/bower_components/metisMenu/dist/metisMenu.min.js")"></script>
 

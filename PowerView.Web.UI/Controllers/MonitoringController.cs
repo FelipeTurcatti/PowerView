@@ -19,6 +19,6 @@ namespace PowerView.Web.UI.Controllers
         public ActionResult Index()
         {
             return View();
-        }
+        }             
     }
 }

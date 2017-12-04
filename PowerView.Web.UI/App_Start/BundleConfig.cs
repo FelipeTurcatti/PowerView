@@ -26,6 +26,12 @@ namespace PowerView.Web.UI
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
             "~/bower_components/jquery-ui/jquery-ui.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/d3").Include(
+            "~/bower_components/rickshaw/vendor/d3.v3.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/rickshaw").Include(
+            "~/bower_components/rickshaw/rickshaw.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -45,6 +51,8 @@ namespace PowerView.Web.UI
                "~/bower_components/jquery-ui/themes/base/jquery-ui.css"
             ));
 
+            bundles.Add(new ScriptBundle("~/Content/rickshaw/css")
+                .IncludeDirectory("~/bower_components/rickshaw/src/css", "*.css", true));          
         }
     }
 }
