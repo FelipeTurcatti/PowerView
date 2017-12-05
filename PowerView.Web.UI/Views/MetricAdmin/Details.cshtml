@@ -1,0 +1,54 @@
+﻿@model PowerView.Domain.Metric
+
+@{
+    ViewBag.Title = "Detalle métrica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <br />
+    @Html.AntiForgeryToken()
+
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UnitMeasurementId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UnitMeasurementId)
+            </dd>
+        </dl>
+    </div>
+    <br />
+    <br />
+    <div id="pie-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index", "MetricAdmin")'">
+                    </td>
+                    <td>
+                        <input type="submit" value="Aceptar" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+}
