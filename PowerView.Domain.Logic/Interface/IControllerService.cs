@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PowerView.DataAccess;
 
 namespace PowerView.Domain.Logic.Interface
 {
@@ -17,5 +18,8 @@ namespace PowerView.Domain.Logic.Interface
         void Update(Controller controller);
 
         void Delete(Controller controller);
+
+        void AddMetricController(Int32 controllerID,Int32 metricID);
     }
+      
 }

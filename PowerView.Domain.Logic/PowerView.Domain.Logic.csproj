@@ -42,10 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IMetricService.cs" />
     <Compile Include="Interface\IControllerService.cs" />
+    <Compile Include="Interface\IUnitMeasurementService.cs" />
     <Compile Include="Interface\IUserService.cs" />
+    <Compile Include="MetricService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControllerService.cs" />
+    <Compile Include="UnitMeasurementService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>

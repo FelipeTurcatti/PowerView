@@ -81,6 +81,6 @@ namespace PowerView.DataAccess
             this.context.Entry(entityToUpdate).State = EntityState.Modified;
             this.context.SaveChanges();
         }
-
+      
     }
 }   

@@ -25,10 +25,21 @@ namespace PowerView.DataAccess
 
         public DbSet<UnitMeasurement> UnitMeasurements { get; set; }
 
-        public DbSet<MetricController> MetricControllers { get; set; }
+        //public DbSet<MetricController> MetricControllers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Controller>()
+                .HasMany(up => up.Metrics)
+                .WithMany(met => met.Controllers)
+                .Map(mc =>
+                {
+                    mc.ToTable("MetricController");
+                    mc.MapLeftKey("Metric_MetricID");
+                    mc.MapRightKey("Controller_ControllerID");
+                }
+            );
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
