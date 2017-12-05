@@ -22,7 +22,7 @@ namespace PowerView.Web.UI.Domain
 
             // Monitoreo 
             menu.Add(new Navbar { Id = 21, nameOption = "Configuración", imageClass = "fa fa-wrench fa-fw", status = true, isParent = true, parentId = 0 });
-            menu.Add(new Navbar { Id = 22, nameOption = "ABM Métricas", controller = "MetricaAdmin", action = "Index", status = true, isParent = false, parentId = 21 });
+            menu.Add(new Navbar { Id = 22, nameOption = "ABM Métricas", controller = "MetricAdmin", action = "Index", status = true, isParent = false, parentId = 21 });
             menu.Add(new Navbar { Id = 23, nameOption = "ABM Controladores", controller = "ControllerAdmin", action = "Index", status = true, isParent = false, parentId = 21 });
 
             menu.Add(new Navbar { Id = 24, nameOption = "Monitoreo", imageClass = "fa fa-bar-chart-o fa-fw", status = true, isParent = true, parentId = 0 });

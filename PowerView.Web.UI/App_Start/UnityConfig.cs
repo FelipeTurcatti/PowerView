@@ -47,7 +47,15 @@ namespace PowerView.Web.UI
             // TODO: Register your type's mappings here.
 
             container.RegisterType<IControllerRepository, ControllerRepository>();
-            container.RegisterType<IControllerService, ControllerService>();            
+            container.RegisterType<IControllerService, ControllerService>();
+            container.RegisterType<IMetricRepository, MetricRepository>();
+            container.RegisterType<IMetricService, MetricService>();
+            container.RegisterType<IUnitMeasurementRepository, UnitMeasurementRepository>();
+            container.RegisterType<IUnitMeasurementService, UnitMeasurementService>();
+            
+
+
+
         }
     }
 }

@@ -11,6 +11,11 @@ namespace PowerView.Domain
     [Serializable]
     public class Controller
     {
+        public Controller()
+        {
+            this.Metrics = new HashSet<Metric>();
+        }
+
         [Key]
         [Column(Order = 10)]
         [Display(Name = "ID")]
@@ -19,16 +24,17 @@ namespace PowerView.Domain
 
         [Column(Order = 20)]
         [Display(Name = "Nombre")]
-        [MaxLength(200)]        
+        [MaxLength(100)]        
         [Required(ErrorMessage = "Nombre obligatoria")]
         public String Name { get; set; }
 
         [Column(Order = 30)]
         [Display(Name = "Descripción")]
-        [MaxLength(200)]        
+        [MaxLength(250)]        
         [Required(ErrorMessage = "Descripción obligatoria")]
         public String Description { get; set; }
-        
-       
+
+
+        public virtual ICollection<Metric> Metrics { get; set; }
     }
 }

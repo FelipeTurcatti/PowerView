@@ -1,4 +1,4 @@
-﻿@model PowerView.Domain.Controller
+﻿@model PowerView.Web.UI.Models.ControllerViewModel
 
 @{
     ViewBag.Title = "Modificar controlador";
@@ -12,27 +12,26 @@
         <table>
             <tr>
                 <td>
-                    @Html.HiddenFor(model => model.ControllerId)
+                    @Html.HiddenFor(model => model._controller.ControllerId)
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 200px" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model._controller.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model._controller.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 200px" } })
+                    @Html.ValidationMessageFor(model => model._controller.Name, "", new { @class = "text-danger" })
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 450px" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model._controller.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model._controller.Description, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 450px" } })
+                    @Html.ValidationMessageFor(model => model._controller.Description, "", new { @class = "text-danger" })
                 </td>
             </tr>
         </table>
-        <br />
-        <br />
-        <br />
+      
+
         <div id="pie-container">
             <table>
                 <tr>
@@ -47,5 +46,6 @@
         </div>
 
     </div>
+
 }
 

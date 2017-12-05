@@ -221,9 +221,11 @@
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MetricAdminController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ControllerAdminController.cs" />
     <Compile Include="Controllers\ControllerController.cs" />
+    <Compile Include="Models\ControllerViewModel.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1037,6 +1039,12 @@
     <Content Include="Views\ControllerAdmin\Create.cshtml" />
     <Content Include="Views\ControllerAdmin\Edit.cshtml" />
     <Content Include="Views\ControllerAdmin\Delete.cshtml" />
+    <Content Include="Views\MetricAdmin\Index.cshtml" />
+    <Content Include="Views\MetricAdmin\Details.cshtml" />
+    <Content Include="Views\MetricAdmin\Create.cshtml" />
+    <Content Include="Views\MetricAdmin\Edit.cshtml" />
+    <Content Include="Views\MetricAdmin\Delete.cshtml" />
+    <Content Include="Views\ControllerAdmin\ShowMetrica.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

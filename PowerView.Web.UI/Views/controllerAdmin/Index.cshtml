@@ -29,7 +29,8 @@
             <td>
                 @Html.ActionLink("Modificar", "Edit", new { id = item.ControllerId }) |
                 @Html.ActionLink("Detalles", "Details", new { id = item.ControllerId }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.ControllerId })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.ControllerId }) |
+                @Html.ActionLink("Métricas", "ShowMetrica", new { id = item.ControllerId })
             </td>
         </tr>
     }

@@ -18,6 +18,20 @@ namespace PowerView.DataAccess
         }
         #endregion
 
+        public void AddMetricController(Int32 controllerID,Int32 metricID)
+        {
+            Controller controller = this.GetByID(controllerID);
+
+            Metric metric = new Metric { MetricId = metricID };
+
+            this.context.Metrics.Attach(metric);
+
+            controller.Metrics.Add(metric);
+
+            this.context.SaveChanges();                
+        }
+        
+
         #region Methods
         #endregion
     }
