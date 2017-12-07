@@ -101,7 +101,6 @@ namespace PowerView.Web.UI.Controllers
 
             return View(model);
         }
-     
         
         /// <summary>
         /// GET: ControllerAdmin/Edit/5
@@ -122,7 +121,6 @@ namespace PowerView.Web.UI.Controllers
             }
             return View(model);
         }
-
        
         /// <summary>
         /// POST: ControllerAdmin/Edit/5 
@@ -145,11 +143,8 @@ namespace PowerView.Web.UI.Controllers
 
             return View(model);
         }
-
-     
-        /// <summary>
-        /// POST: ControllerAdmin/Delete/5
-        /// </summary>
+            
+    
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -163,11 +158,7 @@ namespace PowerView.Web.UI.Controllers
             }
             return View(controller);
         }
-
-      
-        /// <summary>
-        /// POST: ControllerAdmin/Delete/5
-        /// </summary>
+                  
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -179,10 +170,7 @@ namespace PowerView.Web.UI.Controllers
 
             return RedirectToAction("Index");
         }
-
-        /// <summary>
-        /// GET: ControllerAdmin/AddMetrica/5
-        /// </summary>
+               
         public ActionResult ShowMetrica(int? id)
         {
             if (id == null)
@@ -204,32 +192,59 @@ namespace PowerView.Web.UI.Controllers
 
         [HttpPost]
         public ActionResult ShowMetrica(ControllerViewModel model)
-        {                    
-            PowerView.Domain.Controller controller = this._controllerService.GetByID(model._controller.ControllerId);
-            
-            PowerView.Domain.Metric metric = controller.Metrics.FirstOrDefault(e => e.MetricId.ToString() == model.metricID);
+        {   
+            // Valida Metrica
+            PowerView.Domain.Metric metricExist = this._metricService.GetByID(Int32.Parse(model.metricID));
+            if (metricExist == null)
+            {
+                TempData["Errores"] = "La métrica no existe";
+                return View("ShowMetrica", model);
+            }
 
+            // Valida si la controladora tiene la metrica
+            PowerView.Domain.Controller controller = this._controllerService.GetByID(model._controller.ControllerId);
+            PowerView.Domain.Metric metric = controller.Metrics.FirstOrDefault(e => e.MetricId.ToString() == model.metricID);            
             if (metric != null)
             {
                 TempData["Errores"] = "La controladora ya tiene la metrica seleccionada";                
             }
             else
             {
-
-                this._controllerService.AddMetricController(model._controller.ControllerId,Int32.Parse(model.metricID));                              
-
+                this._controllerService.AddMetricController(model._controller.ControllerId,Int32.Parse(model.metricID));
                 TempData["Errores"] = "La métrica se ha agregado de forma exitosa";
+                controller.Metrics.Add(metricExist);                
             }
-                            
+
             model._controller = controller;
             model._metrics = this._metricService.Get();
 
-            if (controller == null)
-            {
-                return HttpNotFound();
-            }
+          
             return View("ShowMetrica",model);
         }
+        public ActionResult DeleteMetric(int? idController,int? idMetrica)
+        {
+            if (idController == null && idMetrica == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            PowerView.Domain.Controller controller = this._controllerService.GetByID(idController.Value);
+            PowerView.Domain.Metric metric = controller.Metrics.FirstOrDefault(e => e.MetricId == idMetrica.Value);
+            if (metric == null)
+            {
+                TempData["Errores"] = "La métrica no existe en la controladora.";
+            }
+            else
+            {
+                this._controllerService.RemoveMetricController(idController.Value, idMetrica.Value);
+                TempData["Errores"] = "La métrica se ha agregado de forma exitosa";
+                controller.Metrics.Remove(metric);
+            }
+
+            ControllerViewModel model = new ControllerViewModel();
+            model._controller = controller;
+            model._metrics = this._metricService.Get();
+            return View(model);
+        }
     }
 }

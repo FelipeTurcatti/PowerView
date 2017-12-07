@@ -30,7 +30,20 @@ namespace PowerView.DataAccess
 
             this.context.SaveChanges();                
         }
-        
+        public void RemoveMetricController(Int32 controllerID, Int32 metricID)
+        {
+            Controller controller = this.GetByID(controllerID);
+                        
+            Metric metric = controller.Metrics.FirstOrDefault(e => e.MetricId == metricID);
+
+            controller.Metrics.Remove(metric);
+
+            this.Update(controller);
+
+            //context.Entry(controller.Metrics).State = EntityState.Deleted;
+            
+            this.context.SaveChanges();
+        }
 
         #region Methods
         #endregion

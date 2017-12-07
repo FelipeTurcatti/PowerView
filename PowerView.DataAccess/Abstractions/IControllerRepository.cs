@@ -24,5 +24,7 @@ namespace PowerView.DataAccess.Abstractions
         void Delete(Controller controller);
               
         void AddMetricController(Int32 controllerID, Int32 metricID);
+
+        void RemoveMetricController(Int32 controllerID, Int32 metricID);
     }
 }
