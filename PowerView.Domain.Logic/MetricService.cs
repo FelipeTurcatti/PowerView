@@ -48,5 +48,6 @@ namespace PowerView.Domain.Logic
             this._metricRepository.Delete(metric);
 
         }
+
     }
 }

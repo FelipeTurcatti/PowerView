@@ -1045,6 +1045,7 @@
     <Content Include="Views\MetricAdmin\Edit.cshtml" />
     <Content Include="Views\MetricAdmin\Delete.cshtml" />
     <Content Include="Views\ControllerAdmin\ShowMetrica.cshtml" />
+    <Content Include="Views\ControllerAdmin\DeleteMetric.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

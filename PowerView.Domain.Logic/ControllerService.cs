@@ -55,5 +55,10 @@ namespace PowerView.Domain.Logic
         {
             this._controllerRepository.AddMetricController(controllerID,metricID);
         }
+
+        public void RemoveMetricController(Int32 idController,Int32 idMetrica)
+        {
+            this._controllerRepository.RemoveMetricController(idController, idMetrica);
+        }
     }
 }
