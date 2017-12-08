@@ -143,7 +143,6 @@ namespace PowerView.Web.UI.Controllers
 
             return View(model);
         }
-            
     
         public ActionResult Delete(int? id)
         {
@@ -206,7 +205,7 @@ namespace PowerView.Web.UI.Controllers
             PowerView.Domain.Metric metric = controller.Metrics.FirstOrDefault(e => e.MetricId.ToString() == model.metricID);            
             if (metric != null)
             {
-                TempData["Errores"] = "La controladora ya tiene la metrica seleccionada";                
+                TempData["Errores"] = "La metrica seleccionada ya existe en la controladora.";                
             }
             else
             {
@@ -237,7 +236,7 @@ namespace PowerView.Web.UI.Controllers
             else
             {
                 this._controllerService.RemoveMetricController(idController.Value, idMetrica.Value);
-                TempData["Errores"] = "La métrica se ha agregado de forma exitosa";
+                TempData["Errores"] = "La métrica se ha eliminado de la controladora de forma exitosa";
                 controller.Metrics.Remove(metric);
             }
 
