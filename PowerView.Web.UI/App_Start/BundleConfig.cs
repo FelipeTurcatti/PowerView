@@ -45,6 +45,7 @@ namespace PowerView.Web.UI
                       "~/bower_components/bootstrap/dist/css/bootstrap.min.css",
                       "~/bower_components/metisMenu/dist/metisMenu.min.css",
                       "~/Content/timeline.css",
+                      "~/Content/Site.css",
                       "~/Content/sb-admin-2.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
