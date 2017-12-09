@@ -72,22 +72,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\IMeasurementRepository.cs" />
-    <Compile Include="Abstractions\ISensorRepository.cs" />
+    <Compile Include="Abstractions\IControllerRepository.cs" />
+    <Compile Include="Abstractions\IMetricRepository.cs" />
+    <Compile Include="Abstractions\IUnitMeasurementRepository.cs" />
     <Compile Include="Abstractions\IUserRepository.cs" />
     <Compile Include="GenericEntityFrameworkRepository.cs" />
     <Compile Include="MeasurementRepository.cs" />
-    <Compile Include="Migrations\201711281852150_InitialCreate.cs" />
-    <Compile Include="Migrations\201711281852150_InitialCreate.Designer.cs">
-      <DependentUpon>201711281852150_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711281904393_AddForeignKeyNames.cs" />
-    <Compile Include="Migrations\201711281904393_AddForeignKeyNames.Designer.cs">
-      <DependentUpon>201711281904393_AddForeignKeyNames.cs</DependentUpon>
-    </Compile>
+    <Compile Include="MetricRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PowerViewDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SensorRepository.cs" />
+    <Compile Include="ControllerRepository.cs" />
+    <Compile Include="UnitMeasurementRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,14 +99,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711281852150_InitialCreate.resx">
-      <DependentUpon>201711281852150_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711281904393_AddForeignKeyNames.resx">
-      <DependentUpon>201711281904393_AddForeignKeyNames.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

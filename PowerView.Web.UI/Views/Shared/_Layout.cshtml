@@ -35,21 +35,66 @@
     <script src="@Url.Content("~/bower_components/metisMenu/dist/metisMenu.min.js")"></script>
 
 </head>
+
 <body>
     <div id="wrapper">
         <!-- Navigation -->
         @Html.Action("Index", "Navbar")
-        
+
+
         <div id="page-wrapper">
-            @RenderBody()          
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">@ViewBag.Title</h2>
+                </div>
+                <div class="col-lg-12">
+                    
+                    <table id="tablaErrores" align="left" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <img id="imgInfo" src="@Url.Content("~/Content/images/information.gif")" border="0" />
+                                            <span style="color:#2446a3">@Html.Label("Mensajes")</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table  cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            @if (@TempData["Errores"] != null)
+                                            {
+                                                <p style="color:red"><b>@TempData["Errores"]</b></p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Pone linea de separacion -->
+                    <table id="tablaErroresLinea">
+                        <tr>
+                            <td><br /></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            @RenderBody()
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-         
     <!-- DataTables JavaScript -->
     <script src="@Url.Content("~/bower_components/raphael/raphael-min.js")"></script>
- 
+
     <!-- DataTables JavaScript -->
     <script src="@Url.Content("~/bower_components/datatables/media/js/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js")"></script>

@@ -10,21 +10,37 @@ namespace PowerView.Domain
 {
     public class Metric 
     {
+        public Metric()
+        {
+            this.Controllers = new HashSet<Controller>();
+        }
+
+        [Key]
+        [Column(Order = 10)]
+        [Display(Name = "ID")]
         [Required]
         public int MetricId { get; set; }
 
-        [MaxLength(200)]
+        [Column(Order = 20)]
+        [Display(Name = "Nombre")]
+        [MaxLength(100)]
         [Required]
         public String Name { get; set; }
 
-        [MaxLength(200)]
+        [Column(Order = 30)]
+        [Display(Name = "Descripción")]
+        [MaxLength(250)]
         [Required]
         public String Description { get; set; }
-        
+
+        [Column(Order = 40)]
+        [Display(Name = "UM")]   
         [Required]
-        public UnitMeasurement UnitMeasurement { get; set; }
-       
-        public Controller Controller { get; set; }
+        public Int32 UnitMeasurementId { get; set; }
+
+        public virtual UnitMeasurement UnitMeasurement { get; set; }
+
+        public virtual ICollection<Controller> Controllers { get; set; }
 
     }
 }

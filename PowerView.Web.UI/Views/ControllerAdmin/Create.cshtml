@@ -1,0 +1,50 @@
+﻿@model PowerView.Web.UI.Models.ControllerViewModel
+
+@{
+    ViewBag.Title = "Crear controladora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <br />
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model._controller.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model._controller.Name, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 200px" } })
+                    @Html.ValidationMessageFor(model => model._controller.Name, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model._controller.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model._controller.Description, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 450px; width: 450px" } })
+                    @Html.ValidationMessageFor(model => model._controller.Description, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+      
+
+
+        <div id="pie-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index", "ControllerAdmin")'">
+                    </td>
+                    <td>
+                        <input type="submit" value="Aceptar" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+}

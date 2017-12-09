@@ -1,6 +1,50 @@
-﻿
+﻿@model IEnumerable<PowerView.Domain.Controller>
+
 @{
     ViewBag.Title = "Administración de controladores";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<table class="base">
+    <tr>
+        <th width="25%">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th width="50%">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Modificar", "Edit", new { id = item.ControllerId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.ControllerId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.ControllerId }) |
+                @Html.ActionLink("Métricas", "ShowMetrica", new { id = item.ControllerId })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+<br />
+<div id="pie-container">
+    <table>
+        <tr>
+            <td>
+                <input type="button" class="btn btn-danger" value="Nuevo" onclick="location.href='@Url.Action("Create", "ControllerAdmin")'">
+            </td>
+        </tr>
+    </table>
+</div>

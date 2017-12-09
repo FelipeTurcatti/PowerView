@@ -1,0 +1,47 @@
+﻿@model  PowerView.Domain.Controller
+
+@{
+    ViewBag.Title = "Eliminar controlador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.HiddenFor(model => model.ControllerId)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div id="pie-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index", "ControllerAdmin")'">
+                    </td>
+                    <td>
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace PowerView.Domain.Logic.Interface
 {
-    public interface IControllerService
+    public interface IUnitMeasurementService
     {
-        Controller GetController(Int32 controllerID);
-
-        IList<Controller> GetControllers();
+        IEnumerable<UnitMeasurement> Get();
     }
 }
