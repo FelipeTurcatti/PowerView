@@ -28,7 +28,16 @@ table.base th {
     font-weight: bold;
     font-size: x-small;
 }
-
+#pie-container {
+    float: none;
+    width: 700px;
+    background-color: #e5e5e5;
+    height: 50px;
+    padding: 10px;
+    margin: 10px 10px 0px 0px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -36,5 +45,10 @@ table.base th {
     white-space: normal;
 }
 
-
+#tablaErrores {
+    width: 100%;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    
+}
   
