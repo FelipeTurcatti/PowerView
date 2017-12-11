@@ -1925,8 +1925,7 @@
     <Content Include="..\packages\MongoRepository.1.6.11\MongoRepository.chm">
       <Link>Documentation\MongoRepository.chm</Link>
     </Content>
-    <None Include="Project_Readme.html" />
-    <Content Include="Views\Monitoring\Index.cshtml" />
+    <None Include="Project_Readme.html" />    
     <Content Include="Scripts\powerView.chart.js" />
   </ItemGroup>
   <ItemGroup>

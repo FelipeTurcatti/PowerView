@@ -16,6 +16,7 @@ namespace PowerView.Domain.Logic
         {
             this._measurementRepository = measurementRepository;
         }
+
         /// <summary>
         /// Gets the last measurement value for the controller and metric
         /// </summary>
@@ -24,12 +25,15 @@ namespace PowerView.Domain.Logic
         /// <returns></returns>
         public Double PullData(String controllerName, String metricName)
         {
-            var mesure = this._measurementRepository
+            var measure = this._measurementRepository
                 .Where(e => e.ControllerName == controllerName && e.MetricName == metricName).AsQueryable()
-                .OrderByDescending(l => l.CreationDate).First();
+                .OrderByDescending(l => l.CreationDate).FirstOrDefault();
 
-           
-            return mesure.Value;
+
+            if (null != measure)
+                return measure.Value;
+            else
+                return 0;
         }
 
     }
