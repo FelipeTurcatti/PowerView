@@ -13,11 +13,16 @@ var graph = new Rickshaw.Graph({
 	})
 });
 
-var y_ticks = new Rickshaw.Graph.Axis.Y({
+var ticksTreatment = 'glow';
+
+var xAxis = new Rickshaw.Graph.Axis.Time({
+    graph: graph,    
+    timeFixture: new Rickshaw.Fixtures.Time()
+});
+
+var yAxis = new Rickshaw.Graph.Axis.Y({
     graph: graph,
-    orientation: 'left',
-    tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-    element: document.getElementById('y_axis')
+    tickFormat: Rickshaw.Fixtures.Number.formatKMBT,    
 });
 
 graph.render();
