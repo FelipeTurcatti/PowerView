@@ -52,10 +52,8 @@ namespace PowerView.Web.UI
             container.RegisterType<IMetricService, MetricService>();
             container.RegisterType<IUnitMeasurementRepository, UnitMeasurementRepository>();
             container.RegisterType<IUnitMeasurementService, UnitMeasurementService>();
-            
-
-
-
+            container.RegisterType<IMeasurementRepository, MeasurementRepository>();
+            container.RegisterType<IMeasurementService, MeasurementService>();
         }
     }
 }
