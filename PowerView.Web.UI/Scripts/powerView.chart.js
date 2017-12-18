@@ -2,9 +2,7 @@
 
 // instantiate our graph!
 var graph = new Rickshaw.Graph({
-	element: document.getElementById("chart"),
-	width: 900,
-	height: 500,
+	element: document.getElementById("chart"),	
 	renderer: 'line',
 	series: new Rickshaw.Series.FixedDuration([{ name: 'one' }], undefined, {
 		timeInterval: tv,
@@ -14,11 +12,6 @@ var graph = new Rickshaw.Graph({
 });
 
 var ticksTreatment = 'glow';
-
-var xAxis = new Rickshaw.Graph.Axis.Time({
-    graph: graph,    
-    timeFixture: new Rickshaw.Fixtures.Time()
-});
 
 var yAxis = new Rickshaw.Graph.Axis.Y({
     graph: graph,
@@ -39,3 +32,4 @@ var iv = setInterval(function () {
   		alert(error);
 	});
 }, tv);
+

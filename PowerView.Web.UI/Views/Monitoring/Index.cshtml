@@ -1,45 +1,45 @@
-﻿@{
+﻿@model IEnumerable<PowerView.Domain.Controller>
+
+@{
     ViewBag.Title = "Monitoreo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    #chart {
-        position: relative;
-        left: 40px;
-    }
 
-    #y_axis {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 40px;
-    }
-</style>
-
-<!-- /.row -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Stream Data Chart
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div id="chart_container">
-                    <div id="y_axis"></div>
-                    <div id="chart"></div>
+@foreach (var controller in Model)
+{
+    foreach (var metric in controller.Metrics)
+    {
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @metric.Name
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="chart_container">
+                            <div id="@metric.MetricId + "_chart""></div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
                 </div>
+                <!-- /.panel -->
             </div>
-            <!-- /.panel-body -->
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.panel -->
-    </div>
-    <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-   
+        <!-- /.row -->
+    }
+}
+
 
 @section scripts
 {
-    <script src="@Url.Content("~/Scripts/powerView.chart.js")"></script>
+    <script src="@Url.Content("~/Scripts/powerView.widgets.streamChart.js")"></script>
+    <script>
+        $(function () {
+            $("#chart").streamChart();
+        });
+        
+    </script>
 }
