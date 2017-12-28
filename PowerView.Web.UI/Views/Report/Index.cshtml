@@ -1,0 +1,110 @@
+﻿@model PowerView.Web.UI.Models.ReportViewModel
+
+@{
+    ViewBag.Title = "Consutas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            Controlador
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            @Html.DropDownListFor(model => Model.ControllerIdSelected,
+                            new SelectList(Model.AllControllers, "ControllerID", "Description"),
+                            new { @class = "btn btn-default dropdown-toggle" })
+
+                        </td>   
+                        <td>&nbsp;</td>
+                        <td>
+                            Métrica
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            @Html.DropDownListFor(model => Model.MetricIdSelected,
+                            new SelectList(Model.ControllerSelected.Metrics, "MetricID", "Description"),
+                            new { @class = "btn btn-default dropdown-toggle" })
+
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                        <td>
+                            Fecha desde
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            @Html.EditorFor(model => Model.TimeRangeFrom, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha desde", @readonly = "true" } })
+                        </td>
+                        <td>&nbsp;</td>
+                        
+                   
+                        <td>
+                            Fecha hasta
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            @Html.EditorFor(model => Model.TimeRangeTo, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha hasta", @readonly = "true" } })
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                        <td>
+                            Frecuencia
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            @Html.DropDownListFor(model => Model.FrequencySelected,
+                            new SelectList(Model.AllFrequency),
+                            new { @class = "btn btn-default dropdown-toggle" })
+                                                        
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        
+    </div>
+    <br />
+    <br />
+    <div id="pie-container">
+        <table>
+            <tr>
+                <td>
+                    <input type="submit" value="Graficar" class="btn btn-danger" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+
+        });
+    </script>
+ 
+ 
+
+
+
+
+}

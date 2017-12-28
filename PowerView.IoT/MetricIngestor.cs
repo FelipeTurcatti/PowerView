@@ -82,7 +82,7 @@ namespace PowerView.IoT.Ingestion
         public Measurement GetMeasurement(String metric)
         {
             Measurement measurement = JsonConvert.DeserializeObject<Measurement>(metric);
-            measurement.CreationDate = DateTime.UtcNow;
+            measurement.CreationDate = DateTime.Now;
             return measurement;
         }
         #endregion

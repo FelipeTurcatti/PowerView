@@ -28,6 +28,8 @@ namespace PowerView.Web.UI.Domain
             menu.Add(new Navbar { Id = 24, nameOption = "Monitoreo", imageClass = "fa fa-bar-chart-o fa-fw", status = true, isParent = true, parentId = 0 });
             menu.Add(new Navbar { Id = 25, nameOption = "Controladores", controller = "Monitoring", action = "Index", status = true, isParent = false, parentId = 24 });
 
+            menu.Add(new Navbar { Id = 26, nameOption = "Consultas", controller = "Report", action = "Index",imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
+
             return menu;
         }
 

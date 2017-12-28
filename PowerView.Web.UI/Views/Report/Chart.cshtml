@@ -1,0 +1,95 @@
+﻿@model PowerView.Web.UI.Models.ReportViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.HiddenFor(model => Model.ControllerIdSelected)
+            @Html.HiddenFor(model => Model.MetricIdSelected)
+            @Html.HiddenFor(model => Model.TimeRangeFrom)
+            @Html.HiddenFor(model => Model.TimeRangeTo)
+            @Html.HiddenFor(model => Model.FrequencySelected)
+            @Html.HiddenFor(model => Model.ControllerName)
+            @Html.HiddenFor(model => Model.MetricName)
+            @Html.HiddenFor(model => Model.UM)
+            @Html.HiddenFor(model => Model.Grafico)
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Gráfico
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="chartContainer" style="height: 300px; width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <br />
+        <br />
+        <div id="pie-container">
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index", "Report")'">
+                    </td>
+                </tr>
+            </table>
+        </div>
+       
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.post("/report/json/",
+                    {
+                        ControllerIdSelected: $("#ControllerIdSelected").val(),
+                        MetricIdSelected: $("#MetricIdSelected").val(),
+                        TimeRangeFrom: $("#TimeRangeFrom").val(),
+                        TimeRangeTo: $("#TimeRangeTo").val(),
+                        FrequencySelected: $("#FrequencySelected").val(),
+                        ControllerName: $("#ControllerName").val(),
+                        MetricName: $("#MetricName").val()
+                    },
+                    function (data) {
+                        var chart = new CanvasJS.Chart("chartContainer", {
+                            animationEnabled: true,
+                            theme: "theme1",//theme1
+                            title: {
+                                text: $("#ControllerName").val() + " - " + $("#MetricName").val()
+                            },
+                            data: [
+                                {
+                                    // Change type to "bar", "splineArea", "area", "spline", "pie",etc.
+                                    type: $("#Grafico").val(),
+                                    dataPoints: data
+                                }
+                            ],
+                            axisX: {
+                                title: "Mediciones",
+                                titleFontColor: "red",
+                                titleFontSize: 20
+
+                            },
+                            axisY: {
+                                title: $("#UM").val(),
+                                titleFontColor: "red",
+                                titleFontSize: 20
+                            }
+                        });
+
+                        chart.render();
+                    });
+            });
+        </script>
+}
+
