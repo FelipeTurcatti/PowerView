@@ -7,7 +7,9 @@
         options: {
             graphType: 'line',
             maxDataPoints: 100,
-            updateInterval: 1000           
+            updateInterval: 1000,
+            controllerID: 'YY',
+            metricName: 'XX'
         },
 
         // The constructor
@@ -22,16 +24,19 @@
                 })
             });           
 
+          
+    
             this.yAxis = new Rickshaw.Graph.Axis.Y({
                 graph: this.graph,
                 tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
             });
 
             this.graph.render();
-            
+
+                        
             this.interval = this._setIntervalWithContext(function () {
                 var self = this;
-                $.post("/api/metricProvider/pull")
+                $.post("/api/metricProvider/pull/" + this.options.controllerID + "/" + this.options.metricName)
                     .done(function (data) {
                         var metricData = { one: data };
                         self.graph.series.addData(metricData);
@@ -41,7 +46,7 @@
                     });
             }, this.options.updateInterval, this);
 
-            this._refresh();
+            this._refresh();        
         },
 
         _setIntervalWithContext: function (code, delay, context) {

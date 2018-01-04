@@ -14,12 +14,13 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        @metric.Name
+                        @controller.Description - @metric.Description
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div id="chart_container">
-                            <div id="@metric.MetricId + "_chart""></div>
+                            <div id="@metric.MetricId"></div>
+
                         </div>
                     </div>
                     <!-- /.panel-body -->
@@ -29,6 +30,7 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
+
     }
 }
 
@@ -36,10 +38,19 @@
 @section scripts
 {
     <script src="@Url.Content("~/Scripts/powerView.widgets.streamChart.js")"></script>
-    <script>
-        $(function () {
-            $("#chart").streamChart();
-        });
-        
-    </script>
+    @foreach (var controller in Model)
+    {
+        foreach (var metric in controller.Metrics)
+        {
+            
+            <script>
+                //alert('@metric.Name');
+                $(function () {
+                    $("#@metric.MetricId").streamChart({ controllerID:'@controller.Name', metricName:'@metric.Name'});
+                });
+
+            </script>
+        }
+    }
+
 }
